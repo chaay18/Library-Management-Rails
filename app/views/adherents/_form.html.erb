@@ -1,0 +1,37 @@
+<%= form_with(model: adherent) do |form| %>
+  <% if adherent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(adherent.errors.count, "error") %> prohibited this adherent from being saved:</h2>
+
+      <ul>
+        <% adherent.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <%= form.label :nom %>
+    <%= form.text_field :nom , class:"form-control", placeholder:"Nom"%>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :prenom %>
+    <%= form.text_field :prenom , class:"form-control", placeholder:"Prenom"%>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :tel %>
+    <%= form.text_field :tel, class:"form-control", placeholder:"Tel" %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :email %>
+    <%= form.text_field :email, class:"form-control", placeholder:"Email" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>

@@ -1,0 +1,40 @@
+<h2 align="center">Adherent <%= @adherent.id %> </h2>
+<div class="mt-4 p-5 rounded bg-light ">
+  
+    <h5 class="display-5">
+       <%= @adherent.nom %>
+       <%= @adherent.prenom %>
+    </h5>
+
+    <hr class="my-4">
+
+    <p class="lead">
+      <strong>ID:</strong>
+      <%= @adherent.id %>
+    </p>
+    <p class="lead">
+      <strong>Nom:</strong>
+      <%= @adherent.nom %>
+    </p>
+
+    <p class="lead">
+      <strong>Prenom:</strong>
+      <%= @adherent.prenom %>
+    </p>
+
+    <p class="lead">
+      <strong>Tel:</strong>
+      <%= @adherent.tel %>
+    </p>
+
+    <p class="lead">
+      <strong>Email:</strong>
+      <%= @adherent.email %>
+    </p>
+    
+    <%= link_to 'Modifier', edit_adherent_path(@adherent), class:"btn btn-secondary" %> 
+    <%= link_to 'Supprimer', @adherent, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+    <%= link_to 'Retour', adherents_path, class:"btn btn-dark" %>
+  </div>
+
+

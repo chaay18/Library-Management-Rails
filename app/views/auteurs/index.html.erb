@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Auteurs</h1>
+
+<%= form_tag auteurs_path, :method => "get" do %>
+<% label_tag(:search, "Quel est lID de l'auteur? ")  %>
+<%= text_field_tag :search, params[:search] ,class:"form-control me-2", placeholder:"ID de l'Auteur" %>
+<br>
+<%= submit_tag("Rechercher", :id => nil , class:"btn btn-secondary") %>
+<%end%>
+<br>
+<hr>
+<br>
+<table class="table table-hover table-striped table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auteurs.each do |auteur| %>
+      <tr>
+        <td><%= auteur.nom %></td>
+        <td><%= auteur.prenom %></td>
+        <td><%= link_to 'Détails', auteur , class:"btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to 'Modifier', edit_auteur_path(auteur), class:"btn btn-outline-success btn-sm" %></td>
+        <td><%= link_to 'Supprimer', auteur, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Auteur', new_auteur_path , class:"btn btn-secondary"%>

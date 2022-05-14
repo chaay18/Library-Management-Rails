@@ -1,0 +1,27 @@
+<%= form_with(model: auteur) do |form| %>
+  <% if auteur.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(auteur.errors.count, "error") %> prohibited this auteur from being saved:</h2>
+
+      <ul>
+        <% auteur.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <%= form.label :nom %>
+    <%= form.text_field :nom , class:"form-control", placeholder:"Nom"%>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :prenom %>
+    <%= form.text_field :prenom, class:"form-control", placeholder:"Prenom" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>

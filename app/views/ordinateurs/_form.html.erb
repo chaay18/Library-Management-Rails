@@ -1,0 +1,27 @@
+<%= form_with(model: ordinateur) do |form| %>
+  <% if ordinateur.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ordinateur.errors.count, "error") %> prohibited this ordinateur from being saved:</h2>
+
+      <ul>
+        <% ordinateur.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <%= form.label :marque %>
+    <%= form.text_field :marque, class:"form-control", placeholder:"Marque" %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :nbr_copies %>
+    <%= form.number_field :nbr_copies , class:"form-control", placeholder:"Nombre de Copies"%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>

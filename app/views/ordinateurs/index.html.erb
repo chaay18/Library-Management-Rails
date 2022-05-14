@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ordinateurs</h1>
+
+<%= form_tag ordinateurs_path, :method => "get" do %>
+<% label_tag(:search, "Quel est l'ID de l'ordinateur? ")  %>
+<%= text_field_tag :search, params[:search] ,class:"form-control me-2", placeholder:"ID de l'Ordinateur" %>
+<br>
+<%= submit_tag("Rechercher", :id => nil , class:"btn btn-secondary") %>
+<%end%>
+<br>
+<hr>
+<br>
+<table class="table table-hover table-striped table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Marque</th>
+      <th>Nbr copies</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ordinateurs.each do |ordinateur| %>
+      <tr>
+        <td><%= ordinateur.marque %></td>
+        <td><%= ordinateur.nbr_copies %></td>
+        <td><%= link_to 'Détails', ordinateur, class:"btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to 'Modifier', edit_ordinateur_path(ordinateur), class:"btn btn-outline-success btn-sm" %></td>
+        <td><%= link_to 'Supprimer', ordinateur, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-outline-danger btn-sm"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ordinateur', new_ordinateur_path, class:"btn btn-secondary" %>

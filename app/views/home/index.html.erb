@@ -1,0 +1,86 @@
+<h1 align="center">Bienvenue à votre espace de gestion de bibliothèque !</h1>
+<br><br>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Adhérents</h5>
+        <p class="card-text">Il y a <strong> <%=Adherent.count%> </strong>adherents actuellement inscrits dans la bibliotheque.</p>
+        <% if user_signed_in? %>
+        	<%= link_to 'Adherents', adherents_path, class:"btn btn-secondary" %>
+        <% else  %>
+        	<%= link_to 'Adherents', new_user_session_path, class:"btn btn-secondary" %> 
+        <% end %>
+        <!--<a href="#" class="btn btn-secondary">Go to Adhérents</a>-->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Ordinateurs</h5>
+        <p class="card-text">Il y a <strong> <%=Ordinateur.sum(:nbr_copies)%> </strong>ordinateurs disponibles dans la bibliotheque avec <strong> <%=Ordinateur.count%> </strong> marques differentes.</p> 
+        <% if user_signed_in? %>
+        	<%= link_to 'Ordinateurs', ordinateurs_path, class:"btn btn-secondary" %> 
+        <% else  %>
+        	<%= link_to 'Ordinateurs', new_user_session_path, class:"btn btn-secondary" %> 
+        <% end %>
+
+        <!--<a href="#" class="btn btn-secondary">Go to Ordinateurs</a>-->
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Documents</h5>
+        <p class="card-text">Il y a <strong> <%=Document.sum(:nombre_copies)%> </strong>documents disponibles dans la bibliotheque avec <strong> <%=Document.count%> </strong> titres et <strong><%=Auteur.count%></strong> auteurs differents.</p>
+        <% if user_signed_in? %>
+        	<%= link_to 'Go to Documents', documents_path, class:"btn btn-secondary" %> 
+        <% else  %>
+        	<%= link_to 'Go to Documents', new_user_session_path, class:"btn btn-secondary" %> 
+        <% end %>
+          
+        <!--<a href="#" class="btn btn-secondary">Go to Documents</a>-->
+      </div>
+    </div>
+  </div>
+
+    <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Emprunts</h5>
+        <p class="card-text">Il y a <strong><%= EmpruntDoc.count %></strong> emprunts de documents et <strong><%=Empruntordi.count %></strong> embrunts d'ordinateurs actuellement dans la bibliotheque.</p>
+        <% if user_signed_in? %>
+	        <div class="dropdown">
+			  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+			    Go to Emprunts
+			  </a>
+
+			  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			    <li><%= link_to 'Emprunts Documents', emprunt_docs_path, class:"dropdown-item" %></li>
+			    <li><%= link_to 'Emprunts Ordinateurs', empruntordis_path, class:"dropdown-item" %> </li>
+			  </ul>
+			</div>
+		<% else  %>
+			<%= link_to 'Go to Emprunts', new_user_session_path, class:"btn btn-secondary dropdown-toggle" %> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--Il y a <%Adherent.count%> adherents inscrit dans la bibliotheque <br>
+Il y a <%Document.count%> documents disponibles dans la bibliotheque avec <%Auteur.count%> auteurs differents <br>
+Il y a <%Ordinateur.sum(:nbr_copies)%> ordinateurs disponibles dans la bibliotheque avec <%Ordinateur.count%> marques differentes <br>
+Il y a <strong> <%Document.sum(:nombre_copies)%> </strong>documents disponibles dans la bibliotheque avec <strong> <%=Document.count%> </strong> titres differentes.
+
+<% EmpruntDoc.count %> + <%Empruntordi.count %>-->
+
+
+

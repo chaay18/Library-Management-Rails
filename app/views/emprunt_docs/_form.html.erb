@@ -1,0 +1,28 @@
+<%= form_with(model: emprunt_doc) do |form| %>
+  <% if emprunt_doc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(emprunt_doc.errors.count, "error") %> prohibited this emprunt_doc from being saved:</h2>
+
+      <ul>
+        <% emprunt_doc.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <%= form.label :adherent_id %>
+    <%= form.text_field :adherent_id, class:"form-control", placeholder:"ID de l'Adherent" %>
+  </div>
+
+   <div class="field mb-3">
+    <%= form.label :document_id %>
+    <%= form.text_field :document_id, class:"form-control", placeholder:"ID du Document" %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>

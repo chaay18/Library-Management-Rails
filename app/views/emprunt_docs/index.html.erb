@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Emprunt Docs</h1>
+
+<table class="table table-hover table-striped table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Id</th>
+      <th>Adherent</th>
+      <th>Document Emprunté</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emprunt_docs.each do |emprunt_doc| %>
+      <tr>
+        <td><%= emprunt_doc.id %></td>
+        <td><%= emprunt_doc.adherent.prenom %> <%= emprunt_doc.adherent.nom %> </td>
+        <td><%= emprunt_doc.document.titre %></td>
+        <td><%= link_to 'Détails', emprunt_doc , class:"btn btn-outline-primary btn-sm"%></td>
+        <td><%= link_to 'Modifier', edit_emprunt_doc_path(emprunt_doc), class:"btn btn-outline-success btn-sm" %></td>
+        <td><%= link_to 'Rendre Document', emprunt_doc, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-outline-danger btn-sm"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Emprunt Doc', new_emprunt_doc_path, class:"btn btn-secondary" %>

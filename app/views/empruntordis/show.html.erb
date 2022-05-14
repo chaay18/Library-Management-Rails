@@ -1,0 +1,42 @@
+<h2 align="center">Ordinateur Emprunté <%= @empruntordi.id %> </h2>
+<div class="mt-4 p-5 rounded bg-light ">
+  
+    <h5 class="display-5">
+       Emprunt <%= @empruntordi.id %> 
+    </h5>
+
+    <hr class="my-4">
+
+    <p class="lead">
+      <strong>ID:</strong>
+      <%= @empruntordi.id %>
+    </p>
+    <p class="lead">
+      <strong>Adherent:</strong>
+      <%= @empruntordi.adherent.prenom %>  <%= @empruntordi.adherent.nom %>
+    </p>
+
+    <p class="lead">
+      <strong>ID Adherent:</strong>
+      <%= @empruntordi.adherent.id %>
+    </p>
+
+    <p class="lead">
+      <strong>Marque Ordinateur Emprunté:</strong>
+      <%= @empruntordi.ordinateur.marque %> 
+    </p>
+
+    <p class="lead">
+      <strong>ID Ordinateur Emprunté:</strong>
+      <%= @empruntordi.ordinateur.id  %> <span></span> 
+    </p>
+
+  
+    <%= link_to 'Modifier', edit_empruntordi_path(@empruntordi), class:"btn btn-secondary" %> 
+    <%= link_to 'Supprimer', @empruntordi, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+    <%= link_to 'Retour', empruntordis_path, class:"btn btn-dark" %>
+  </div>
+
+
+
+

@@ -1,0 +1,38 @@
+<h2 align="center">Ordinateur <%= @ordinateur.id %> </h2>
+<div class="mt-4 p-5 rounded bg-light ">
+  
+    <h5 class="display-5">
+       Ordinateur <%= @ordinateur.marque %> <%= @ordinateur.id %> 
+    </h5>
+
+    <hr class="my-4">
+
+    <p class="lead">
+      <strong>ID:</strong>
+      <%= @ordinateur.id %>
+    </p>
+    <p class="lead">
+      <strong>Marque:</strong>
+      <%= @ordinateur.marque %>
+    </p>
+
+    <p class="lead">
+      <strong>Nbr copies:</strong>
+      <%= @ordinateur.nbr_copies %>
+    </p>
+  
+    <%= link_to 'Modifier', edit_ordinateur_path(@ordinateur), class:"btn btn-secondary" %> 
+    <%= link_to 'Supprimer', @ordinateur, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+    <%= link_to 'Retour', ordinateurs_path, class:"btn btn-dark" %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+

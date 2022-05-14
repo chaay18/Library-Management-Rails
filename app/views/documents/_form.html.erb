@@ -1,0 +1,32 @@
+<%= form_with(model: document) do |form| %>
+  <% if document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+      <ul>
+        <% document.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <%= form.label :titre %>
+    <%= form.text_field :titre , class:"form-control", placeholder:"Titre"%>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :nombre_copies %>
+    <%= form.number_field :nombre_copies , class:"form-control", placeholder:"Nombre de Copies"%>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :auteur_id %>
+    <%= form.text_field :auteur_id , class:"form-control", placeholder:"ID de l'Auteur" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>

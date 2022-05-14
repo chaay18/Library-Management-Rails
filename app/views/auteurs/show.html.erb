@@ -1,0 +1,25 @@
+<h2 align="center">Auteur <%= @auteur.id %></h2>
+<div class="mt-4 p-5 rounded bg-light ">
+
+
+<h5 class="display-5">
+       <%= @auteur.nom %>
+       <%= @auteur.prenom %>
+</h5>
+<p class="lead">
+  <strong>Nom:</strong>
+  <%= @auteur.nom %>
+</p>
+
+<p class="lead">
+  <strong>Prenom:</strong>
+  <%= @auteur.prenom %>
+</p>
+
+<%= link_to 'Modifier', edit_auteur_path(@auteur), class:"btn btn-secondary" %> 
+<%= link_to 'Delete', @auteur, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<%= link_to 'Retour', auteurs_path , class:"btn btn-dark"%>
+  </div>
+
+
+  

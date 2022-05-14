@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Empruntordis</h1>
+
+<table class="table table-hover table-striped table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Id</th>
+      <th>Adherent</th>
+      <th>Ordinateur Emprunté</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empruntordis.each do |empruntordi| %>
+      <tr>
+        <td><%= empruntordi.id %></td>
+        <td><%= empruntordi.adherent.prenom %> <%= empruntordi.adherent.nom %> </td>
+        <td><%= empruntordi.ordinateur.marque %></td>
+        <td><%= link_to 'Détails', empruntordi, class:"btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to 'Modifier', edit_empruntordi_path(empruntordi), class:"btn btn-outline-success btn-sm" %></td>
+        <td><%= link_to 'Rendre Ordinateur', empruntordi, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Empruntordi', new_empruntordi_path, class:"btn btn-secondary" %>
