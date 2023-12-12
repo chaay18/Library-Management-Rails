@@ -73,6 +73,7 @@ On a 2 types d'emprunts : Document et Ordinateur
 <img width="1048" alt="Capture d’écran 2023-12-12 à 12 03 49" src="https://github.com/chaay18/Library-Management-Rails/assets/93160283/9da4447c-f995-46a0-8a27-776c0260f8f9">
 
 
+
 ## Code Structure
 
 ### Controllers
